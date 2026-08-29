@@ -15,23 +15,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <!--
-        Jakarta EE 11 full platform API gives us Servlet, WebSocket, JMS
-        (Jakarta Messaging) and EJB (for the @MessageDriven bean) in a
-        single dependency, matching GlassFish 8.x (which implements
-        Jakarta EE 11 and requires JDK 21+). All application code uses
-        the jakarta.* package namespace to match. The app MUST be
-        deployed to a full Jakarta EE application server that implements
-        Jakarta Messaging + MDBs (e.g. GlassFish, Payara, WildFly).
-        A bare Servlet container such as plain Tomcat does NOT support
-        this out of the box - see docs/README.md.
-
-        NOTE: if you are instead using an older server on Java EE 8
-        (javax.* namespace, e.g. GlassFish 5.x), swap this dependency
-        back to groupId "javax" / artifactId "javaee-api" / version
-        "8.0.1", and change every "jakarta." import in src/main/java
-        back to "javax." to match.
-    -->
+    
     <dependencies>
         <dependency>
             <groupId>jakarta.platform</groupId>
