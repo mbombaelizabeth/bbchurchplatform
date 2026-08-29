@@ -1,0 +1,10 @@
+com\church\util\UserStore.class
+com\church\jms\JMSConfig.class
+com\church\websocket\NotificationEndpoint.class
+com\church\servlet\SendNotificationServlet.class
+com\church\servlet\LogoutServlet.class
+com\church\model\User.class
+com\church\filter\AccessControlFilter.class
+com\church\jms\NotificationMessageListener.class
+com\church\servlet\LoginServlet.class
+com\church\servlet\RegistrationServlet.class

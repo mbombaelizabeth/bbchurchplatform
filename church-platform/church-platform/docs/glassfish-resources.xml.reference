@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE resources PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Resource Definitions//EN" "http://glassfish.org/dtds/glassfish-resources_1_5.dtd">
+<resources>
+    <!--
+        Reference only - NOT deployed by default.
+
+        JMSConfig.java already declares the connection factory and queue
+        for Question 4 using @JMSConnectionFactoryDefinition and
+        @JMSDestinationDefinition, which is portable across any Java EE 8
+        server and needs no manual setup.
+
+        If you would rather configure the same two JMS resources by hand
+        on GlassFish/Payara (e.g. via the admin console or asadmin CLI)
+        instead of relying on annotation processing, copy this file to
+        src/main/webapp/WEB-INF/glassfish-resources.xml and remove the
+        two annotations from JMSConfig.java. Do NOT use both approaches
+        at once - you would end up with duplicate JNDI bindings.
+    -->
+    <admin-object-resource
+        jndi-name="java:app/jms/NotificationQueue"
+        res-type="javax.jms.Queue"
+        res-adapter="jmsra">
+        <property name="Name" value="NotificationQueue"/>
+    </admin-object-resource>
+
+    <connector-connection-pool
+        name="NotificationConnectionPool"
+        connection-definition-name="javax.jms.ConnectionFactory"
+        resource-adapter-name="jmsra"/>
+
+    <connector-resource
+        jndi-name="java:app/jms/NotificationConnectionFactory"
+        pool-name="NotificationConnectionPool"/>
+</resources>
