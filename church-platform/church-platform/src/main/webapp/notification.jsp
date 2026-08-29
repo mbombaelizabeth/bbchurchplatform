@@ -1,12 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.church.model.User" %>
 <%
-    // Question 10: Access control is primarily enforced server-side by
-    // AccessControlFilter, mapped with @WebFilter("/notification.jsp").
-    // It redirects anyone who is not logged in, or who is logged in as
-    // a Member rather than a Church Leader, before this page ever
-    // renders - including on direct URL entry. The check below is a
-    // defensive second layer in case the filter is ever removed.
+    
     User user = (session == null) ? null : (User) session.getAttribute("user");
     if (user == null || !User.ROLE_LEADER.equals(user.getRole())) {
         response.sendRedirect(request.getContextPath() + "/home.jsp");
@@ -39,9 +34,7 @@
 
 <div class="container">
     <h2>Send a Notification</h2>
-    <p>Only Church Leaders can access this page. Messages sent here are
-       published to the JMS notification queue (Question 4) and
-       broadcast in real time, via WebSockets (Question 5), to every
+    <p> Messages sent here are broadcast in real time, to every
        member currently viewing the home page.</p>
 
     <% String error = (String) request.getAttribute("error"); %>
