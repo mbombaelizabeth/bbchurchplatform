@@ -12,16 +12,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Question 1: User Registration Servlet.
- *
- * 1.1 Accepts username/password (and role) posted from registration.jsp.
- * 1.2 Validates the input (non-empty fields, allowed role, duplicate username).
- * 1.3 Delegates storage to UserStore, an in-memory ConcurrentHashMap.
- * 1.4 Rejects registration if the username is already taken.
- * 1.5 Forwards back to the form with an error, or to login.jsp with a
- *     success message.
- */
+
 @WebServlet("/register")
 public class RegistrationServlet extends HttpServlet {
 
