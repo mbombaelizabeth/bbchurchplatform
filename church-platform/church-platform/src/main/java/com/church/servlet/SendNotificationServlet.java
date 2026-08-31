@@ -15,17 +15,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
-/**
- * Supporting servlet that publishes a notification onto the JMS queue
- * declared in JMSConfig (Question 4). It is the "producer" side of the
- * pipeline described in Question 5: this servlet -> JMS Queue ->
- * NotificationMessageListener (MDB) -> NotificationEndpoint (WebSocket)
- * -> every browser listening on home.jsp / notification.jsp.
- *
- * Only reachable from notification.jsp, which is itself restricted to
- * Church Leaders by AccessControlFilter (Question 10). The role check
- * is repeated here server-side as a defensive measure.
- */
+
 @WebServlet("/sendNotification")
 public class SendNotificationServlet extends HttpServlet {
 
@@ -56,7 +46,7 @@ public class SendNotificationServlet extends HttpServlet {
 
         String payload = user.getUsername() + ": " + text.trim();
 
-        // Publish the message onto the JMS queue (Question 4/5)
+        // Publish the message onto the JMS queue
         try (JMSContext context = connectionFactory.createContext()) {
             context.createProducer().send(notificationQueue, payload);
         } catch (JMSRuntimeException e) {
