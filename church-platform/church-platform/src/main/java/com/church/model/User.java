@@ -2,11 +2,7 @@ package com.church.model;
 
 import java.io.Serializable;
 
-/**
- * Question 6: User Class
- * Simple POJO representing a registered user of the church platform.
- * Implements Serializable so it can safely live inside an HttpSession.
- */
+
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
