@@ -11,16 +11,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * Question 3: WebSocket Endpoint for Messaging.
- *
- * Clients (home.jsp / notification.jsp) open a WebSocket connection to
- * ws://.../notifications to receive live notifications pushed from the
- * server. The endpoint itself never receives messages from the browser -
- * it only pushes messages out via broadcastMessage(), which is called by
- * NotificationMessageListener (Question 5) whenever a message arrives
- * from the JMS queue.
- */
+
 @ServerEndpoint("/notifications")
 public class NotificationEndpoint {
 
