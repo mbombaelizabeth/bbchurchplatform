@@ -8,11 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
-/**
- * Small supporting servlet (not separately marked) invalidating the
- * HttpSession created by LoginServlet so the "Logout" links in
- * home.jsp / notification.jsp have somewhere to go.
- */
+
 @WebServlet("/logout")
 public class LogoutServlet extends HttpServlet {
 
