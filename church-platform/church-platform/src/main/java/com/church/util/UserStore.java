@@ -5,15 +5,7 @@ import com.church.model.User;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * Question 1.3: In-memory data structure holding registered users.
- *
- * A thread-safe ConcurrentHashMap is used because multiple servlet
- * requests (registration/login) can hit the application concurrently.
- * This class is implemented as a simple singleton so that
- * RegistrationServlet and LoginServlet share exactly the same
- * in-memory "database" for the lifetime of the application.
- */
+
 public class UserStore {
 
     private static final UserStore INSTANCE = new UserStore();
