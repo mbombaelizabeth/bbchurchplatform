@@ -11,24 +11,7 @@ import jakarta.jms.TextMessage;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * Question 5: Integration with WebSockets.
- *
- * This Message-Driven Bean is the consumer for the NotificationQueue
- * defined in JMSConfig (Question 4). The application server invokes
- * onMessage() automatically whenever a message is published to the
- * queue - for example when SendNotificationServlet publishes a message
- * on behalf of a Church Leader. As soon as a message is received, it is
- * forwarded to every connected WebSocket client via
- * NotificationEndpoint.broadcastMessage(message).
- *
- * This combination gives the platform:
- *   - Reliable persistence: JMS holds the message until a consumer is
- *     available/acknowledges it, so nothing is lost if the server is
- *     briefly busy.
- *   - Real-time delivery: as soon as the MDB consumes the message it is
- *     pushed instantly to every browser connected to /notifications.
- */
+
 @MessageDriven(activationConfig = {
         @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "java:app/jms/NotificationQueue"),
         @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "jakarta.jms.Queue"),
