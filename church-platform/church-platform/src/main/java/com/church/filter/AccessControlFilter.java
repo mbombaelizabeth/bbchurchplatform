@@ -13,19 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
-/**
- * Question 10: Role-based access control for notification.jsp.
- *
- * Mapped directly onto "/notification.jsp" via @WebFilter, so it runs
- * in front of every request for that page - including direct URL entry,
- * not just clicks from within the app.
- *
- * Rules:
- *   - No session / not logged in           -> redirect to login.jsp
- *   - Logged in, but role != "Church Leader" -> redirect to home.jsp
- *     with an explanatory error message
- *   - Logged in as a Church Leader          -> allowed through
- */
+
 @WebFilter("/notification.jsp")
 public class AccessControlFilter implements Filter {
 
