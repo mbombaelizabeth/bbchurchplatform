@@ -1,42 +1,13 @@
 # Church Notification Platform
 
 A Jakarta EE 11 web application (Servlets + WebSocket + JMS + JSP),
-targeting GlassFish 8.x, built to the assignment brief below. Every
+targeting GlassFish 8.0.4. Every
 source file has a comment naming the question it answers.
 
 > **Namespace note:** this code uses the `jakarta.*` package namespace
 > (Jakarta Servlet, Jakarta WebSocket, Jakarta Messaging, Jakarta EJB),
-> matching GlassFish 8 / Jakarta EE 11. If you deploy to an older
-> Java EE 8 server instead (e.g. GlassFish 5.x, which uses the
-> `javax.*` namespace), you must change every `jakarta.*` import back
-> to `javax.*` and swap the `jakarta.platform:jakarta.jakartaee-api`
-> dependency in `pom.xml` back to `javax:javaee-api:8.0.1` — the two
-> namespaces are not interchangeable at runtime, and mixing them causes
-> annotated servlets/endpoints/MDBs to silently fail to register
-> (symptom: JSPs load fine, but any URL handled by a `@WebServlet` —
-> e.g. `/login`, `/register` — returns 404).
+> matching GlassFish 8 / Jakarta EE 11.
 
-## Where each mark comes from
-
-**Deliverable 1 - Back end (80 marks)**
-
-| Q | Topic | File(s) |
-|---|-------|---------|
-| 1 | Registration Servlet (20) | `src/main/java/com/church/servlet/RegistrationServlet.java`, backed by `util/UserStore.java` |
-| 2 | Login Servlet (25) | `src/main/java/com/church/servlet/LoginServlet.java` |
-| 3 | WebSocket endpoint (15) | `src/main/java/com/church/websocket/NotificationEndpoint.java` |
-| 4 | JMS configuration (10) | `src/main/java/com/church/jms/JMSConfig.java` |
-| 5 | JMS -> WebSocket integration (5) | `src/main/java/com/church/jms/NotificationMessageListener.java` (consumes the queue and calls `NotificationEndpoint.broadcastMessage`); produced onto by `servlet/SendNotificationServlet.java` |
-| 6 | User class (5) | `src/main/java/com/church/model/User.java` |
-
-**Deliverable 2 - Front end (20 marks)**
-
-| Q | Topic | File |
-|---|-------|------|
-| 7 | login.jsp (5) | `src/main/webapp/login.jsp` |
-| 8 | registration.jsp (5) | `src/main/webapp/registration.jsp` |
-| 9 | home.jsp (5) | `src/main/webapp/home.jsp` (opens the WebSocket from Q3 and lists notifications live) |
-| 10 | notification.jsp + RBAC (5) | `src/main/webapp/notification.jsp` guarded by `src/main/java/com/church/filter/AccessControlFilter.java` |
 
 ## How the pieces fit together
 
