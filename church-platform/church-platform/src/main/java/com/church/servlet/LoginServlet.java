@@ -11,18 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
-/**
- * Question 2: Login Servlet.
- *
- * 2.1 Accepts username/password posted from login.jsp.
- * 2.2 Validates the input (non-empty fields) and checks the credentials
- *     against UserStore, the same in-memory store used at registration
- *     (this is also where a "does this user/role exist" check happens).
- * 2.3 On success, creates an HttpSession and stores the authenticated
- *     User object in it.
- * 2.4 Returns an appropriate success (redirect to home.jsp) or error
- *     (forward back to login.jsp with a message) response.
- */
+
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 
